@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fixed Background Image</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/style.css">
+  <style>
+  body {
+      background-image: url("./static/images/background.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: top center;
+      transition: background-color 0.5s ease; /* Add transition for smooth color change */
+    }
+  </style>
+</head>
+<body>
+
+
+    <div id="overlay"></div>
+
+    <script>
+
+        window.addEventListener('scroll', function() {
+          var height = window.innerHeight;
+            var overlay = document.getElementById('overlay');
+            //var page_buffer = document.getElementById('page_buffer');
+            var navbars = document.querySelectorAll('.toplink');
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            var scrollPercentage = (scrollTop / height) * 100;
+            var opacity = scrollTop / height;
+
+            overlay.style.opacity = opacity;
+
+            //document.getElementById("page_buffer").style.marginTop = "50px";
+
+            navbars.forEach(function(navbar) {
+                if (scrollPercentage > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top justify-content-between px-5 py-3" id="navbar">
+    <!-- Add your navigation links here -->
+    <div>
+      <a href="https://www.youtube.com" class="pangolin toplink px-2">accueil</a>
+      <a href="#spectacles" class="pangolin toplink px-2">spectacles</a>
+      <a href="https://www.youtube.com" class="pangolin toplink px-2">chansons</a>
+      <a href="https://www.youtube.com" class="pangolin toplink px-2">boutique</a>
+    </div>
+    <div>
+      <a href="https://www.youtube.com" class="px-2"><i class="fab fa-youtube toplink"></i></a>
+      <a href="https://www.facebook.com" class="px-2"><i class="fab fa-facebook toplink"></i></a>
+      <a href="https://www.spotify.com" class="px-2"><i class="fab fa-spotify toplink"></i></a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div id="arrival_content" style="flex: 1 0 auto;" >
+    <div class="row justify-content-center pt-5" id="top_logo">
+    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+    		<img src="./static/images/louve_nom.png" class="img-fluid center-block d-block mx-auto" alt="Logo">
+    	</div>
+    </div>
+
+    <div class="row justify-content-center py-5 fixed-bottom" id="boutons">
+      <div class="col col-lg-2 mx-3">
+     </div>
+
+    	<div class="col col-lg-2 mx-3">
+	       <button type="button" class="btn btn-outline-light btn-block pangolin rounded-0">albums et chansons</button>
+	    </div>
+      <div class="col col-lg-2 mx-3">
+        <button type="button" class="btn btn-outline-light btn-block pangolin rounded-0">s'abonner à la liste d'envoi</button>
+      </div>
+      <div class="col col-lg-2 mx-3">
+          <button type="button" class="btn btn-outline-light btn-block pangolin rounded-0">boutique</button>
+      </div>
+      <div class="col col-lg-2 mx-3">
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Include Bootstrap JS (jQuery is required) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
